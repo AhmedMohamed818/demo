@@ -32,10 +32,9 @@ Route::get('/detail ads', [PageControllor::class,'detailads']) -> name('page.det
 Route::get('/category sell', [PageControllor::class,'categorysell']) -> name('page.categorysell');
 Route::get('/brand', [PageControllor::class,'brand']) -> name('page.brand');
 Route::get('/ads', [PageControllor::class,'ads']) -> name('page.ads');
-Route::get('/info use rcar', [PageControllor::class,'ads']) -> name('page.infoCarMaintenance');
-Route::get('/changed details', [PageControllor::class,'ads']) -> name('page.ichanged');
-Route::get('/ads view', [PageControllor::class,'ads']) -> name('page.viewer');
-
+Route::get('/info user car', [PageControllor::class,'infousercar']) -> name('page.infoCarMaintenance');
+Route::get('/changed details', [PageControllor::class,'changeddetails']) -> name('page.ichanged');
+Route::get('/ads view', [PageControllor::class,'adsviews']) -> name('page.viewer');
 
 
 
