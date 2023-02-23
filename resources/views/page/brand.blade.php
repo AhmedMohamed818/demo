@@ -5,6 +5,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
+<<<<<<< HEAD
+=======
+<!--===============================================================================================-->
+>>>>>>> a31f547b89eb1dcad0481c5da4a069d524ba75e1
 <link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -30,7 +34,11 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/css/main.css')}}">
     <!-- ===== Link Swiper's CSS ===== -->
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+=======
+    <link rel="stylesheet" href="{{asset('fontend/https://unpkg.com/swiper/swiper-bundle.min.css')}}"/>
+>>>>>>> a31f547b89eb1dcad0481c5da4a069d524ba75e1
 
     <!-- ===== Fontawesome CDN Link ===== -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -50,7 +58,11 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="index.html">
+<<<<<<< HEAD
 							<img src="#" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/icons/logo2.png')}}">
+=======
+							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('images/icons/logo2.png')}}">
+>>>>>>> a31f547b89eb1dcad0481c5da4a069d524ba75e1
 						</a>
 					</div>
 
