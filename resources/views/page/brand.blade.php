@@ -5,7 +5,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-!--===============================================================================================-->
 <link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -31,10 +30,10 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/css/main.css')}}">
     <!-- ===== Link Swiper's CSS ===== -->
-    <link rel="stylesheet" href="{{asset('fontend/')}}https://unpkg.com/swiper/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <!-- ===== Fontawesome CDN Link ===== -->
-    <link rel="stylesheet" href="{{asset('fontend/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css')}}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="{{asset('fontend/style.css')}}">
@@ -51,7 +50,7 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="index.html">
-							<img src="#" alt="IMG-LOGO" data-logofixed="images/icons/logo2.png">
+							<img src="#" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/icons/logo2.png')}}">
 						</a>
 					</div>
 
@@ -142,7 +141,7 @@
 
 			<!-- Gallery -->
 			<div class="wrap-gallery-sidebar flex-w">
-				<a class="item-gallery-sidebar wrap-pic-w" href="{{asset('fontend/')}}images/esy-054424167.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="{{asset('fontend/images/esy-054424167.jpg')}}" data-lightbox="gallery-footer">
 					<img class="im" src="{{asset('fontend/images/esy-054424167.jpg')}}" alt="GALLERY">
 				</a>
 
@@ -154,7 +153,7 @@
 					<img class="im" src="{{asset('fontend/images/YsAxc5zK1615525562.jpg')}}" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="{{asset('fontend/')}}images/kn-vf1001_11.jpg" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="{{asset('fontend/images/kn-vf1001_11.jpg')}}" data-lightbox="gallery-footer">
 					<img class="im" src="{{asset('fontend/images/kn-vf1001_11.jpg')}}" alt="GALLERY">
 				</a>
 
