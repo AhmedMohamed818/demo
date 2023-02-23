@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-!--===============================================================================================-->
+<!--===============================================================================================-->
 <link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -42,7 +42,7 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="home1.html">
-							<img src="{{asset('fontend/')}}images/logo.jpeg" alt="IMG-LOGO" data-logofixed="images/logo.jpeg">
+							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/logo.jpeg')}}">
 						</a>
 					</div>
 
@@ -51,19 +51,19 @@
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="home1.html">Home</a>
+									<a href="{{ route('page.home')}}">Home</a>
 								</li>
 
 								<li>
-									<a href="Maintenance.html">check car</a>
+									<a href="{{ route('page.Maintenance')}}">check car</a>
 								</li>
 
 								<li>
 									<li class="nav-item dropdown">
 										<a class="nav-link dropdown-toggle" href="ADS.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-										   <li><a href="brands.html">New cars</a></li>
-										   <li><a href="brands.html"> Used cars</a></li>
+										   <li><a href="{{ route('page.brand')}}">New cars</a></li>
+										   <li><a href="{{ route('page.brand')}}"> Used cars</a></li>
 										   
 										  
 										</ul>
@@ -79,7 +79,7 @@
 								</li>
 
 								<li>
-									<a href="sells.html">Sell</a>
+									<a href="{{ route('page.categorysell')}}">Sell</a>
 								</li>
 								
 							</ul>
@@ -209,26 +209,26 @@
 
 							<ul>
 								<li class="bo5-b p-t-8 p-b-8">
-                                    <a href="brands.html" class="txt27">
+                                    <a href="{{ route('page.brand')}}" class="txt27">
 										Cars for Sale
 									</a>
 									
 								</li>
 
 								<li class="bo5-b p-t-8 p-b-8">
-									<a href="rent2.html" class="txt27">
+									<a href="{{ route('page.inforent')}}" class="txt27">
 										Cars for Rent
 									</a>
 								</li>
 
 								<li class="bo5-b p-t-8 p-b-8">
-									<a href="info_about_tyres.html" class="txt27">
+									<a href="{{ route('page.infotboa')}}" class="txt27">
 										Tyres, Batteries, Oils,  & Accessories
 									</a>
 								</li>
 
 								<li class="bo5-b p-t-8 p-b-8">
-									<a href="brands.html" class="txt27">
+									<a href="{{route('page.brand')}}" class="txt27">
 										Car Spare Parts
 									</a>
 								</li>

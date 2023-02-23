@@ -18,11 +18,11 @@ class PageControllor extends Controller
     }
 
     public function infotboa() {
-        return view('page.info tboa');
+        return view('page.infotboa');
     }
 
     public function infosparepart() {
-        return view('page.info sparepart');
+        return view('page.infosparepart');
     }
 
     public function inforent () {
