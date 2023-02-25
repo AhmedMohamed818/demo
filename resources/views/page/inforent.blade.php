@@ -201,54 +201,31 @@
 		<h4 class="txt33 bo5-b p-b-35 p-t-58" style="text-align: center;">
 			Details
 		</h4>
-
+	<form action="{{ route('page.inforent')}}" method="POST">
+		@csrf
 		<ul style="text-align: center;">
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					Price
+					Brand
 					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="price">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" placeholder="price">
 					</div>
 				</label>
-				
 			</li>
-
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					<span class="txt9">
-						Transmission Type :
-					</span><p></p>
-
-					<input type="radio" name="type"> Automatic &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Manual
+					Car Model
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="car_model" placeholder="price">
+					</div>
 				</label>
 			</li>
-
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Rental Period :
-					</span><p></p>
-
-					<input type="radio" name="type"> Daily&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Monthly&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Yearly
-				</label>
-			</li>
-
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Rental Option :
-					</span><p></p>
-
-					<input type="radio" name="type"> All&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">With Driver&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Without Driver
-				</label>
-			</li>
-
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
 					<span class="txt9">
 						Body Type :
 					</span><p></p>
-					<select> 
+					<select name="body_type"> 
 						<option>Type</option>
 						<option>SUV</option>
 						<option>4x4</option>
@@ -258,19 +235,97 @@
 					</select>
 				</label>
 			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Transmission Type :
+					</span><p></p>
 
+					<input type="checkbox" name="transmission_type"> Automatic &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="transmission_type">Manual
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					year
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="year" placeholder="price">
+					</div>
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Engine Capacity :
+					</span><p></p>
+					<select name="engine_capacity"> 
+						<option>0-800</option>
+						<option>1000-1300</option>
+						<option>1400-1500</option>
+						<option>1600</option>
+						<option>1800-2000</option>
+						
+					</select>
+				</label>
+			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
 					<span class="txt9">
 						Fuel Type :
 					</span><p></p>
 
-					<input type="radio" name="type"> Benzine&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Diesel&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Electric&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Hybrid&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Natural Gas
+					<input type="checkbox" name="fuel_type"> Benzine&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Diesel&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Electric&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Hybrid&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Natural Gas
 				</label>
 			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					 Location
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="location" placeholder="price">
+					</div>
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					color
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="color" placeholder="price">
+					</div>
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Rental Option :
+					</span><p></p>
 
-			
+					<input type="checkbox" name="rental_option"> All&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="rental_option">With Driver&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="rental_option">Without Driver
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Rental Period :
+					</span><p></p>
+
+					<input type="checkbox" name="rental_period"> Daily&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="rental_period">Monthly&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="rental_period">Yearly
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					Price
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="price" placeholder="price">
+					</div>
+				</label>
+				
+			</li>		
+			<li class="bo5-b p-t-8 p-b-8">
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="submit" name="email" >
+					</div>
+			</li>	
 		</ul>
+</form>
 	</div>
 
 

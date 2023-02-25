@@ -201,24 +201,15 @@
 		<h4 class="txt33 bo5-b p-b-35 p-t-58" style="text-align: center;">
 			Details
 		</h4>
-
+		<form action="{{ route('page.infosparepart')}}" method="POST">
+		@csrf
 		<ul style="text-align: center;">
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Price
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="price">
-					</div>
-				</label>
-				
-			</li>
-
-			<li class="bo5-b p-t-8 p-b-8">
+		<li class="bo5-b p-t-8 p-b-8">
 				<label>
 					<span class="txt9">
 						Type :
 					</span><p></p>
-					<select> 
+					<select name="type"> 
 						<option>Belts - Filters</option>
 						<option>Body Parts</option>
 						<option>Braking & Suspension</option>
@@ -235,21 +226,49 @@
 					</select>
 				</label>
 			</li>
-
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					brand
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" placeholder="price">
+					</div>
+				</label>
+				
+			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
 					<span class="txt9">
 						Condition :
 					</span><p></p>
 
-					<input type="radio" name="type"> New&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Used
+					<input type="radio" name="condition"> New&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="condition">Used
 				</label>
 			</li>
-
-			
-
-			
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					location
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="location" placeholder="price">
+					</div>
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					Price
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="price" placeholder="price">
+					</div>
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="submit" name="submit" >
+					</div>
+			</li>
 		</ul>
+</form>
 	</div>
 
 

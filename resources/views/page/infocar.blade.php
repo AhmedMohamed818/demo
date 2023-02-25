@@ -202,100 +202,40 @@
 			Details
 		</h4>
 
+		<form action="{{ route('page.infocar')}}" method="POST">
+		@csrf
 		<ul style="text-align: center;">
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Price
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="price">
-					</div>
-				</label>
-				
-			</li>
-
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
 					<span class="txt9">
 						Ad Type :
 					</span><p></p>
 
-					<input type="radio" name="type"> For Sale &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Wanted Item
+					<input type="checkbox" name="ad_type"> For Sale &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="ad_type">Wanted Item
 				</label>
 			</li>
-
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					<span class="txt9">
-						Fuel Type :
-					</span><p></p>
-
-					<input type="radio" name="type"> Benzine&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Diesel&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Electric&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Hybrid&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Natural Gas
-				</label>
-			</li>
-
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Payment Options :
-					</span><p></p>
-
-					<input type="radio" name="type"> Cash&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Exchange&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Installments
-				</label>
-			</li>
-
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Year
+					Brand
 					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email" placeholder="Year">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" placeholder="price">
 					</div>
 				</label>
-				
 			</li>
-
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					<span class="txt9">
-						Transmission Method :
-					</span><p></p>
-
-					<input type="radio" name="type"> Automatic&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Manual
+					Car Model
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="car_model" placeholder="price">
+					</div>
 				</label>
 			</li>
-
-            <li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Condition :
-					</span><p></p>
-
-					<input type="radio" name="type"> New&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="type">Used
-				</label>
-			</li>
-
-
-            <li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Color :
-					</span><p></p>
-					<select> 
-						<option>Black</option>
-						<option>White</option>
-						<option>Blue</option>
-						<option>Red</option>
-						
-						
-					</select>
-				</label>
-			</li>
-
-            <li class="bo5-b p-t-8 p-b-8">
+			<li class="bo5-b p-t-8 p-b-8">
 				<label>
 					<span class="txt9">
 						Body Type :
 					</span><p></p>
-					<select> 
+					<select name="body_type"> 
 						<option>Type</option>
 						<option>SUV</option>
 						<option>4x4</option>
@@ -305,12 +245,29 @@
 					</select>
 				</label>
 			</li>
-            <li class="bo5-b p-t-8 p-b-8">
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Transmission Type :
+					</span><p></p>
+
+					<input type="checkbox" name="transmission_type"> Automatic &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="transmission_type">Manual
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					year
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="year" placeholder="price">
+					</div>
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
 				<label>
 					<span class="txt9">
 						Engine Capacity :
 					</span><p></p>
-					<select> 
+					<select name="engine_capacity"> 
 						<option>0-800</option>
 						<option>1000-1300</option>
 						<option>1400-1500</option>
@@ -320,9 +277,73 @@
 					</select>
 				</label>
 			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Fuel Type :
+					</span><p></p>
+
+					<input type="checkbox" name="fuel_type"> Benzine&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Diesel&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Electric&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Hybrid&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Natural Gas
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Condition :
+					</span><p></p>
+
+					<input type="checkbox" name="condition"> New&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="condition">Used
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					Location
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="location" placeholder="price">
+					</div>
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Color :
+					</span><p></p>
+					<select name="color"> 
+						<option>Black</option>
+						<option>White</option>
+						<option>Blue</option>
+						<option>Red</option>	
+					</select>
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					Price
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="price" placeholder="price">
+					</div>
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<span class="txt9">
+						Payment method :
+					</span><p></p>
+
+					<input type="checkbox" name="payment_method"> Cash&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="payment_method">Exchange&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="payment_method">Installments
+				</label>
+			</li>
+
+			<li class="bo5-b p-t-8 p-b-8">
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="submit" name="submit" >
+					</div>
+			</li>	
+            
 
 			
 		</ul>
+</form>
 	</div>
 
 
