@@ -208,7 +208,7 @@
 							@foreach($modelNames as $modelName)
 								<li class="bo5-b p-t-8 p-b-8">
 									
-                                    <a href="{{ url('/info car')}}/<?php echo $modelName->model;?>" class="txt27">
+                                    <a href="{{ url('/info rent')}}/<?php echo $modelName->model;?>" class="txt27">
 										{{$modelName->model}}
 									</a>
 									

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('brand');
             $table->string('condition');
             $table->string('location');
+            $table->string('image');
             $table->integer('price');
             $table->timestamps();
         });

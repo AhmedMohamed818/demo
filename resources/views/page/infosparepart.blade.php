@@ -42,7 +42,7 @@
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="home1.html">
+						<a href="{{ route('page.home')}}">
 							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/logo.jpeg')}}">
 						</a>
 					</div>
@@ -61,12 +61,13 @@
 
 								<li>
 									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" href="ADS.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
+									<a class="nav-link dropdown-toggle" href="{{ route('page.ads')}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-										   <li><a href="{{ route('page.brand')}}">New cars</a></li>
-										   <li><a href="{{ route('page.brand')}}"> Used cars</a></li>
-										   
-										  
+										   <li><a href="{{ route('page.newcarads')}}">New cars ads</a></li>
+										   <li><a href="{{ route('page.usedcarads')}}">Used cars ads</a></li>
+										   <li><a href="{{ route('page.rentcarads')}}">Rent ads</a></li>
+										   <li><a href="{{ route('page.tboaads')}}">Tyres, batteries, oils, & accessories ads</a></li>
+										   <li><a href="{{ route('page.sparepartads')}}">Spareparts ads</a></li> 
 										</ul>
 									 </li>
 								</li>
@@ -201,7 +202,7 @@
 		<h4 class="txt33 bo5-b p-b-35 p-t-58" style="text-align: center;">
 			Details
 		</h4>
-		<form action="{{ route('page.infosparepart')}}" method="POST">
+		<form action="" method="POST" enctype="multipart/form-data">
 		@csrf
 		<ul style="text-align: center;">
 		<li class="bo5-b p-t-8 p-b-8">
@@ -228,12 +229,14 @@
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					brand
+					Car Brand:
 					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" placeholder="price">
+							@php($i=1)
+							@foreach($brandnames as $brandname)
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" value="{{$brandname->man_name}}" readonly>
+						@endforeach
 					</div>
 				</label>
-				
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
@@ -241,7 +244,7 @@
 						Condition :
 					</span><p></p>
 
-					<input type="radio" name="condition"> New&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="condition">Used
+					<input type="radio" name="condition" value="new"> New&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="condition" value="used">Used
 				</label>
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
@@ -252,6 +255,14 @@
 					</div>
 				</label>
 				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					Choose Image
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="file" name="image">
+					</div>
+				</label>
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>

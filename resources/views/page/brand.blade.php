@@ -54,9 +54,7 @@
 					<div class="logo">
 						<a href="index.html">
 
-							<img src="#" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/icons/logo2.png')}}">
-
-							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('images/icons/logo2.png')}}">
+							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/logo.jpeg')}}">
 
 						</a>
 					</div>
@@ -66,20 +64,22 @@
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="home1.html">Home</a>
+									<a href="{{ route('page.home')}}">Home</a>
 								</li>
 
 								<li>
-									<a href="Maintenance.html">check car</a>
+									<a href="{{ route('page.Maintenance')}}">check car</a>
 								</li>
 
 								<li>
 									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" href="ADS.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
+									<a class="nav-link dropdown-toggle" href="{{ route('page.ads')}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-										   <li><a href="newcars.html">New cars</a></li>
-										   <li><a href="usedcars.html">Used cars</a></li>
-										  
+										   <li><a href="{{ route('page.newcarads')}}">New cars ads</a></li>
+										   <li><a href="{{ route('page.usedcarads')}}">Used cars ads</a></li>
+										   <li><a href="{{ route('page.rentcarads')}}">Rent ads</a></li>
+										   <li><a href="{{ route('page.tboaads')}}">Tyres, batteries, oils, & accessories ads</a></li>
+										   <li><a href="{{ route('page.sparepartads')}}">Spareparts ads</a></li> 
 										</ul>
 									 </li>
 								</li>
@@ -93,7 +93,7 @@
 								</li>
 
 								<li>
-									<a href="sells.html">sells</a>
+									<a href="{{ route('page.categorysell')}}">sells</a>
 								</li>
 							</ul>
 						</nav>
@@ -209,123 +209,18 @@
 		</div>
 	</section>
 
-    
-  <section  class="section">
-    
-    <div class="swiper mySwiper container">
-      <div class="swiper-wrapper content">
-
+    @php($i=1)
+		@foreach($brandNames as $brandName)
         <div class="swiper-slide card">
           <div class="card-content">
             <div class="image">
-              <img src="{{asset('fontend/images/carlogo/toyota.jpg')}}" alt="">
-            </div>
-
-           
-
-            <div class="name-profession">
-              <span class="name">Toyota</span>
-            </div>
-
-            
-
-            <div class="button">
-              
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="{{asset('fontend/images/carlogo/hyundai.jpg')}}" alt="">
+              <img src="{{asset('fontend/images/carlogo')}}/{{$brandName->man_name}}.png" width="400px"alt="">
             </div>
 
             
 
             <div class="name-profession">
-              <span class="name">Hyundai</span>
-            </div>
-
-            
-
-            <div class="button">
-              
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="{{asset('fontend/images/carlogo/kia.jpg')}}" alt="">
-            </div>
-
-            
-
-            <div class="name-profession">
-              <span class="name">Kia</span>
-             
-            </div>
-
-            
-            <div class="button">
-              
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="{{asset('fontend/images/carlogo/mazda.png')}}" alt="">
-            </div>
-
-            
-
-            <div class="name-profession">
-              <span class="name">Mazda</span>
-             
-            </div>
-
-            
-
-            <div class="button">
-              
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="{{asset('fontend/images/carlogo/lancer.png')}}" alt="">
-            </div>
-
-           
-
-            <div class="name-profession">
-              <span class="name">Mitsubishi</span>
-             
-            </div>
-
-            
-            <div class="button">
-             
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="{{asset('fontend/images/carlogo/nissan.jpg')}}" alt="">
-            </div>
-
-            
-
-            <div class="name-profession">
-              <span class="name">Nissan</span>
+              <span class="name">{{$brandName->man_name}}</span>
               
             </div>
 
@@ -333,81 +228,12 @@
 
             <div class="button">
               
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
+              <button onclick="window.location.href='{{ url('/model')}}/<?php echo $brandName->man_name;?>';" class="hireMe">Select</button>
             </div>
           </div>
         </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="{{asset('fontend/images/carlogo/honda.png')}}" alt="">
-            </div>
+       @endforeach
 
-            
-
-            <div class="name-profession">
-              <span class="name">Honda</span>
-              
-            </div>
-
-            
-
-            <div class="button">
-             
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="{{asset('fontend/images/carlogo/mg.jpg')}}" alt="">
-            </div>
-
-            
-
-            <div class="name-profession">
-              <span class="name">MG</span>
-              
-            </div>
-
-            
-
-            <div class="button">
-              
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="{{asset('fontend/images/carlogo/chevrolet.jpg')}}" alt="">
-            </div>
-
-            
-
-            <div class="name-profession">
-              <span class="name">Chevrolet</span>
-             
-            </div>
-
-            
-
-            <div class="button">
-             
-              <button onclick="window.location.href='model.html';" class="hireMe">Select</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-  </section>
   <!-- <section class="section-ourmenu bg2-pattern p-t-115 p-b-120">
     <div class="container">
         <div class="title-section-ourmenu t-center m-b-22">

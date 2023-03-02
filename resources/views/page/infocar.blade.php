@@ -42,7 +42,7 @@
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="home1.html">
+						<a href="{{ route('page.home')}}">
 							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/logo.jpeg')}}">
 						</a>
 					</div>
@@ -61,12 +61,13 @@
 
 								<li>
 									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" href="ADS.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
+										<a class="nav-link dropdown-toggle" href="{{ route('page.ads')}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-										   <li><a href="{{ route('page.brand')}}">New cars</a></li>
-										   <li><a href="{{ route('page.brand')}}"> Used cars</a></li>
-										   
-										  
+										   <li><a href="{{ route('page.newcarads')}}">New cars ads</a></li>
+										   <li><a href="{{ route('page.usedcarads')}}">Used cars ads</a></li>
+										   <li><a href="{{ route('page.rentcarads')}}">Rent ads</a></li>
+										   <li><a href="{{ route('page.tboaads')}}">Tyres, batteries, oils, & accessories ads</a></li>
+										   <li><a href="{{ route('page.sparepartads')}}">Spareparts ads</a></li> 
 										</ul>
 									 </li>
 								</li>
@@ -202,7 +203,7 @@
 			Details
 		</h4>
 
-		<form action="{{ route('page.infocar')}}" method="POST">
+		<form action="" method="POST" enctype="multipart/form-data">
 		@csrf
 		<ul style="text-align: center;">
 			<li class="bo5-b p-t-8 p-b-8">
@@ -211,22 +212,28 @@
 						Ad Type :
 					</span><p></p>
 
-					<input type="checkbox" name="ad_type"> For Sale &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="ad_type">Wanted Item
+					<input type="radio" name="ad_type" value="for sale"> For Sale &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="ad_type" value="wanted item">Wanted Item
 				</label>
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					Brand
+					Car Brand:
 					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" placeholder="price">
+							@php($i=1)
+							@foreach($brandnames as $brandname)
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" value="{{$brandname->man_name}}" readonly>
+						@endforeach
 					</div>
 				</label>
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					Car Model
+					Car Model:
 					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="car_model" placeholder="price">
+							@php($i=1)
+							@foreach($modelNames as $modelName)
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="car_model" value="{{$modelName->model}}" readonly>	
+						@endforeach
 					</div>
 				</label>
 			</li>
@@ -251,7 +258,7 @@
 						Transmission Type :
 					</span><p></p>
 
-					<input type="checkbox" name="transmission_type"> Automatic &nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="transmission_type">Manual
+					<input type="radio" name="transmission_type" value="automatic"> Automatic &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="transmission_type" value="manual">Manual
 				</label>
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
@@ -283,7 +290,7 @@
 						Fuel Type :
 					</span><p></p>
 
-					<input type="checkbox" name="fuel_type"> Benzine&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Diesel&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Electric&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Hybrid&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="fuel_type">Natural Gas
+					<input type="radio" name="fuel_type" value="benzine"> Benzine&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="diesel">Diesel&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="electric">Electric&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="hybrid">Hybrid&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="natural gas">Natural Gas
 				</label>
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
@@ -292,7 +299,7 @@
 						Condition :
 					</span><p></p>
 
-					<input type="checkbox" name="condition"> New&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="condition">Used
+					<input type="radio" name="condition" value="new"> New&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="condition" value="used">Used
 				</label>
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
@@ -318,6 +325,14 @@
 			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
+					Choose Image
+					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
+						<input class="bo-rad-10 sizefull txt10 p-l-20" type="file" name="image">
+					</div>
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
 					Price
 					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
 						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="price" placeholder="price">
@@ -330,7 +345,7 @@
 						Payment method :
 					</span><p></p>
 
-					<input type="checkbox" name="payment_method"> Cash&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="payment_method">Exchange&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="payment_method">Installments
+					<input type="radio" name="payment_method" value="cash"> Cash&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="payment_method" value="exchange">Exchange&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="payment_method" value="installment">Installments
 				</label>
 			</li>
 
@@ -387,7 +402,6 @@
 	<script type="text/javascript" src="{{asset('fontend/vendor/lightbox2/js/lightbox.min.js')}}"></script>
 <!--===============================================================================================-->
 	<script src="{{asset('fontend/js/main.js')}}"></script>
-
 
 </body>
 </html>

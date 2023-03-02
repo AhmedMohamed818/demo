@@ -3,7 +3,7 @@
 <title>Brands</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -42,8 +42,8 @@
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="home1.html">
-							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="images/logo.jpeg">
+						<a href="{{ route('page.home')}}">
+							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/logo.jpeg')}}">
 						</a>
 					</div>
 
@@ -52,21 +52,22 @@
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="home1.html">Home</a>
+									<a href="{{ route('page.home')}}">Home</a>
 								</li>
 
 								<li>
-									<a href="Maintenance.html">check car</a>
+									<a href="{{ route('page.Maintenance')}}">check car</a>
 								</li>
 
 								<li>
 									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" href="cars.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
+									<a class="nav-link dropdown-toggle" href="{{ route('page.ads')}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-										   <li><a href="brands.html">New cars</a></li>
-										   <li><a href="brands.html"> Used cars</a></li>
-										   
-										   <li><a href="rent cars.html">Rent car</a></li>
+										   <li><a href="{{ route('page.newcarads')}}">New cars ads</a></li>
+										   <li><a href="{{ route('page.usedcarads')}}">Used cars ads</a></li>
+										   <li><a href="{{ route('page.rentcarads')}}">Rent ads</a></li>
+										   <li><a href="{{ route('page.tboaads')}}">Tyres, batteries, oils, & accessories ads</a></li>
+										   <li><a href="{{ route('page.sparepartads')}}">Spareparts ads</a></li> 
 										</ul>
 									 </li>
 								</li>
@@ -80,7 +81,7 @@
 								</li>
 
 								<li>
-									<a href="sells.html">sells</a>
+									<a href="{{ route('page.categorysell')}}">sells</a>
 								</li>
 							</ul>
 						</nav>
@@ -185,25 +186,26 @@
 			</div>
 		</div>
 	</aside>
-
-
+	<br><br><br><br><br>
+	<!-- ----------------------car for sale------------------------------------------- -->
 	
     <div class="container1">
 
-
-        <input type="radio" name="slider" class="d-none" id="s1" checked>
+	<h1>Sell ADs</h1>
+        <!-- <input type="radio" name="slider" class="d-none" id="s1" checked>
         <input type="radio" name="slider" class="d-none" id="s2">
         <input type="radio" name="slider" class="d-none" id="s3">
         <input type="radio" name="slider" class="d-none" id="s4">
-        <input type="radio" name="slider" class="d-none" id="s5">
-    
+        <input type="radio" name="slider" class="d-none" id="s5"> -->
+		@php($i=1)
+		@foreach($cfs as $s)
         <div class="cards">
 
 			
-          <label for="s1" id="slide1">
+          <label for="{{'s'.$i}}" id="{{'slide'.$i}}">
             <div class="card">
               <div class="image">
-                <img src="#" alt="">
+                <img src="{{asset($s->image)}}" width="200px" alt="">
                 <div class="dots">
                   <div class="dot1"></div>
                   <div class="dot2"></div>
@@ -211,7 +213,14 @@
                 </div>
               </div>
               <div class="infos">
-                <span class="name"></span>
+                <span class="name">
+					{{$s->ad_type}}
+					<br>
+					{{$s->brand}}
+					<br>
+					{{$s->car_model}}
+					<br>
+				</span>
                 <button onclick="window.location.href='detail_for_app.html';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
                 
               </div>
@@ -220,88 +229,152 @@
             </div>
           </label>
     
-          <label for="s2" id="slide2">
-            <div class="card">
-              <div class="image">
-                <img src="#" alt="">
-                <div class="dots">
-                  <div class="dot1"></div>
-                  <div class="dot2"></div>
-                  <div class="dot3"></div>
-                </div>
-              </div>
-              <div class="infos">
-                <span class="name"></span>
-
-				<button onclick="window.location.href='detail.html';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
-                
-              </div>
-              
-              
-            </div>
-          </label>
-    
-          <label for="s3" id="slide3">
-            <div class="card">
-              <div class="image">
-                <img src="#" alt="">
-                <div class="dots">
-                  <div class="dot1"></div>
-                  <div class="dot2"></div>
-                  <div class="dot3"></div>
-                </div>
-              </div>
-              <div class="infos">
-                <span class="name"></span>
-				<button onclick="window.location.href='detail.html';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
-                
-              </div>
-              
-              
-            </div>
-          </label>
-    
-          <label for="s4" id="slide4">
-            <div class="card">
-              <div class="image">
-                <img src="#" alt="">
-                <div class="dots">
-                  <div class="dot1"></div>
-                  <div class="dot2"></div>
-                  <div class="dot3"></div>
-                </div>
-              </div>
-              <div class="infos">
-                <span class="name"></span>
-                <button onclick="window.location.href='detail.html';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
-
-              </div>
-              
-              
-            </div>
-          </label>
-    
-          <label for="s5" id="slide5">
-            <div class="card">
-              <div class="image">
-                <img src="#" alt="">
-                <div class="dots">
-                  <div class="dot1"></div>
-                  <div class="dot2"></div>
-                  <div class="dot3"></div>
-                </div>
-              </div>
-              <div class="infos">
-                <span class="name"></span>
-                <button onclick="window.location.href='detail.html';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
-              </div>
-              
-              
-            </div>
-          </label>
         </div>
+		@php($i++)
+		@endforeach
     
       </div>
+
+	  	<!-- ----------------------car for rent------------------------------------------- -->
+	
+		  <div class="container1">
+<h1>Rent ADs</h1>
+
+<!-- <input type="radio" name="slider" class="d-none" id="s1" checked>
+<input type="radio" name="slider" class="d-none" id="s2">
+<input type="radio" name="slider" class="d-none" id="s3">
+<input type="radio" name="slider" class="d-none" id="s4">
+<input type="radio" name="slider" class="d-none" id="s5"> -->
+
+@php($i=1)
+		@foreach($cfr as $r)
+        <div class="cards">
+
+			
+          <label for="{{'s'.$i}}" id="{{'slide'.$i}}">
+            <div class="card">
+              <div class="image">
+                <img src="{{asset($r->image)}}" width="200px" alt="">
+                <div class="dots">
+                  <div class="dot1"></div>
+                  <div class="dot2"></div>
+                  <div class="dot3"></div>
+                </div>
+              </div>
+              <div class="infos">
+                <span class="name">
+					{{$r->brand}}
+					<br>
+					{{$r->car_model}}
+					<br>
+				</span>
+                <button onclick="window.location.href='detail_for_app.html';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
+                
+              </div>
+              
+              
+            </div>
+          </label>
+    
+        </div>
+		@php($i++)
+		@endforeach
+
+</div>
+
+	<!-- ----------------------tboa------------------------------------------- -->
+	
+    <div class="container1">
+	<h1>TBOA ADs</h1>
+
+        <!-- <input type="radio" name="slider" class="d-none" id="s1" checked>
+        <input type="radio" name="slider" class="d-none" id="s2">
+        <input type="radio" name="slider" class="d-none" id="s3">
+        <input type="radio" name="slider" class="d-none" id="s4">
+        <input type="radio" name="slider" class="d-none" id="s5"> -->
+    
+        @php($i=1)
+		@foreach($tboa as $t)
+        <div class="cards">
+
+			
+          <label for="{{'s'.$i}}" id="{{'slide'.$i}}">
+            <div class="card">
+              <div class="image">
+                <img src="{{asset($t->image)}}" width="200px" alt="">
+                <div class="dots">
+                  <div class="dot1"></div>
+                  <div class="dot2"></div>
+                  <div class="dot3"></div>
+                </div>
+              </div>
+              <div class="infos">
+                <span class="name">
+					{{$t->type}}
+					<br>
+					{{$t->brand}}
+					<br>
+				</span>
+                <button onclick="window.location.href='detail_for_app.html';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
+                
+              </div>
+              
+              
+            </div>
+          </label>
+    
+        </div>
+		@php($i++)
+		@endforeach
+
+      </div>
+
+	  	<!-- ----------------------spareparts------------------------------------------- -->
+	
+		  <div class="container1">
+		  <h1>Spareparts ADs</h1>
+
+<!-- <input type="radio" name="slider" class="d-none" id="s1" checked>
+<input type="radio" name="slider" class="d-none" id="s2">
+<input type="radio" name="slider" class="d-none" id="s3">
+<input type="radio" name="slider" class="d-none" id="s4">
+<input type="radio" name="slider" class="d-none" id="s5"> -->
+
+@php($i=1)
+		@foreach($csp as $sp)
+        <div class="cards">
+
+			
+          <label for="{{'s'.$i}}" id="{{'slide'.$i}}">
+            <div class="card">
+              <div class="image">
+                <img src="{{asset($sp->image)}}" width="200px" alt="">
+                <div class="dots">
+                  <div class="dot1"></div>
+                  <div class="dot2"></div>
+                  <div class="dot3"></div>
+                </div>
+              </div>
+              <div class="infos">
+                <span class="name">
+					{{$sp->type}}
+					<br>
+					{{$sp->brand}}
+					<br>
+				</span>
+                <button onclick="window.location.href='detail_for_app.html';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
+                
+              </div>
+              
+              
+            </div>
+          </label>
+    
+        </div>
+		@php($i++)
+		@endforeach
+
+</div>
 
 
 

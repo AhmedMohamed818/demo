@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('condition');
             $table->string('location');
             $table->string('color');
+            $table->string('image');
             $table->integer('price');
             $table->string('payment_method');
             $table->timestamps();

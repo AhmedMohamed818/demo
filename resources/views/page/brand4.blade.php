@@ -1,12 +1,11 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Rent Car</title>
+<html>
+<title>Brands</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-<!--===============================================================================================-->
-<link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}"/>
+
+<link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -30,6 +29,17 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/css/main.css')}}">
+    <!-- ===== Link Swiper's CSS ===== -->
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+    <!-- ===== Fontawesome CDN Link ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="{{asset('fontend/style.css')}}">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -42,8 +52,10 @@
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="{{ route('page.home')}}">
+						<a href="index.html">
+
 							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/logo.jpeg')}}">
+
 						</a>
 					</div>
 
@@ -81,9 +93,8 @@
 								</li>
 
 								<li>
-									<a href="{{ route('page.categorysell')}}">Sell</a>
+									<a href="{{ route('page.categorysell')}}">sells</a>
 								</li>
-								
 							</ul>
 						</nav>
 					</div>
@@ -106,7 +117,7 @@
 		<!-- - -->
 		<ul class="menu-sidebar p-t-95 p-b-70">
 			<li class="t-center m-b-13">
-				<a href="home1.html.php" class="txt19">Home</a>
+				<a href="home1.html" class="txt19">Home</a>
 			</li>
 
 			<li class="t-center m-b-13">
@@ -122,7 +133,7 @@
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="sells.html" class="txt19">SELL</a>
+				<a href="sells.html" class="txt19">SellS</a>
 			</li>
 
 			
@@ -188,177 +199,55 @@
 		</div>
 	</aside>
 
+    <section class="section-intro">
+		<div class="header-intro parallax100 t-center p-t-135 p-b-158">
+			<span class="tit2 p-l-15 p-r-15">
+				Choose  Brands
+			</span>
 
-	<!-- Title Page -->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" >
-		
-		<h2 class="tit6 t-center" style="color: black;">
-			Rent Car AD
-		</h2>
+			
+		</div>
 	</section>
 
+    @php($i=1)
+		@foreach($brandNames as $brandName)
+        <div class="swiper-slide card">
+          <div class="card-content">
+            <div class="image">
+              <img src="{{asset('fontend/images/carlogo')}}/{{$brandName->man_name}}.png" width="400px"alt="">
+            </div>
 
-	<div class="categories">
-		<h4 class="txt33 bo5-b p-b-35 p-t-58" style="text-align: center;">
-			Details
-		</h4>
-	<form action="" method="POST" enctype="multipart/form-data">
-		@csrf
-		<ul style="text-align: center;">
-		<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Car Brand:
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							@php($i=1)
-							@foreach($brandnames as $brandname)
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" value="{{$brandname->man_name}}" readonly>
-						@endforeach
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Car Model:
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							@php($i=1)
-							@foreach($modelNames as $modelName)
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="car_model" value="{{$modelName->model}}" readonly>	
-						@endforeach
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Body Type :
-					</span><p></p>
-					<select name="body_type"> 
-						<option>Type</option>
-						<option>SUV</option>
-						<option>4x4</option>
-						<option>Sedan</option>
-						<option>Cabriolet</option>
-						
-					</select>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Transmission Type :
-					</span><p></p>
+            
 
-					<input type="radio" name="transmission_type" value="automatic"> Automatic &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="transmission_type" value="manual">Manual
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					year
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="year" placeholder="price">
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Engine Capacity :
-					</span><p></p>
-					<select name="engine_capacity"> 
-						<option>0-800</option>
-						<option>1000-1300</option>
-						<option>1400-1500</option>
-						<option>1600</option>
-						<option>1800-2000</option>
-						
-					</select>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Fuel Type :
-					</span><p></p>
+            <div class="name-profession">
+              <span class="name">{{$brandName->man_name}}</span>
+              
+            </div>
 
-					<input type="radio" name="fuel_type" value="benzine"> Benzine&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="diesel">Diesel&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="electric">Electric&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="hybird">Hybrid&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="natural gas">Natural Gas
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					 Location
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="location" placeholder="price">
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					color
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="color" placeholder="price">
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Choose Image
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="file" name="image">
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Rental Option :
-					</span><p></p>
+            
 
-					<input type="radio" name="rental_option" value="all"> All&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="rental_option" value="with driver">With Driver&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="rental_option" value="without driver">Without Driver
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Rental Period :
-					</span><p></p>
+            <div class="button">
+              
+              <button onclick="window.location.href='{{ url('/info sparepart')}}/<?php echo $brandName->man_name;?>';" class="hireMe">Select</button>
+            </div>
+          </div>
+        </div>
+       @endforeach
 
-					<input type="radio" name="rental_period" value="daily"> Daily&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="rental_period" value="monthly">Monthly&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="rental_period" value="yearly">Yearly
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Price
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="price" placeholder="price">
-					</div>
-				</label>
-				
-			</li>		
-			<li class="bo5-b p-t-8 p-b-8">
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="submit" name="email" >
-					</div>
-			</li>	
-		</ul>
-</form>
-	</div>
-
-
-
+  <!-- <section class="section-ourmenu bg2-pattern p-t-115 p-b-120">
+    <div class="container">
+        <div class="title-section-ourmenu t-center m-b-22">
+            <span class="tit2 t-center">
+                <button onclick="window.location.href='allbrands.html';" style="background-color: #7d2ae8; border-radius: 20px;  height: 60px;">View All</button>
+         
+            </span>
+</section> -->
+	
+	
 	
 
-
-	<!-- Back to top -->
-	<div class="btn-back-to-top bg0-hov" id="myBtn">
-		<span class="symbol-btn-back-to-top">
-			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
-		</span>
-	</div>
-
-
-
-<!--===============================================================================================-->
-<script type="text/javascript" src="{{asset('fontend/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="{{asset('fontend/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
 	<script type="text/javascript" src="{{asset('fontend/vendor/animsition/js/animsition.min.js')}}"></script>
 <!--===============================================================================================-->
@@ -385,6 +274,27 @@
 <!--===============================================================================================-->
 	<script src="{{asset('fontend/js/main.js')}}"></script>
 
+        <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-</body>
-</html>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      slidesPerGroup: 3,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+    
+    </body>
+    </html>

@@ -50,7 +50,7 @@
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="home1.html">
+						<a href="{{ route('page.home')}}">
 
 							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/logo.jpeg')}}">
 
@@ -72,12 +72,13 @@
 
 								<li>
 									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" href="ADS.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
+									<a class="nav-link dropdown-toggle" href="{{ route('page.ads')}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-										   <li><a href="{{ route('page.brand')}}">New cars</a></li>
-										   <li><a href="{{ route('page.brand')}}"> Used cars</a></li>
-										   
-										  
+										   <li><a href="{{ route('page.newcarads')}}">New cars ads</a></li>
+										   <li><a href="{{ route('page.usedcarads')}}">Used cars ads</a></li>
+										   <li><a href="{{ route('page.rentcarads')}}">Rent ads</a></li>
+										   <li><a href="{{ route('page.tboaads')}}">Tyres, batteries, oils, & accessories ads</a></li>
+										   <li><a href="{{ route('page.sparepartads')}}">Spareparts ads</a></li> 
 										</ul>
 									 </li>
 								</li>
@@ -229,19 +230,19 @@
 								</li>
 
 								<li class="bo5-b p-t-8 p-b-8">
-									<a href="{{route('page.inforent')}}" class="txt27">
+									<a href="{{route('page.brand2')}}" class="txt27">
 										Cars for Rent
 									</a>
 								</li>
 
 								<li class="bo5-b p-t-8 p-b-8">
-									<a href="{{ route('page.infotboa')}}" class="txt27">
+									<a href="{{ route('page.brand3')}}" class="txt27">
 										Tyres, Batteries, Oils,  & Accessories
 									</a>
 								</li>
 
 								<li class="bo5-b p-t-8 p-b-8">
-									<a href="{{route('page.brand')}}" class="txt27">
+									<a href="{{route('page.brand4')}}" class="txt27">
 										Car Spare Parts
 									</a>
 								</li>

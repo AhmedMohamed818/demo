@@ -11,16 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tboa_ads', function (Blueprint $table) {
+        Schema::create('brand_name', function (Blueprint $table) {
             $table->id();
-            $table->string('SSN');
-            $table->string('user_name');
-            $table->string('type');
-            $table->string('brand');
-            $table->string('condition');
-            $table->string('location');
-            $table->string('image');
-            $table->integer('price');
+            $table->string('brand_name');
             $table->timestamps();
         });
     }
@@ -30,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tboa_ads');
+        Schema::dropIfExists('brand_name');
     }
 };

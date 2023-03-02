@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Rent Car</title>
+<html>
+<title>Brands</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-<!--===============================================================================================-->
-<link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}"/>
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/vendor/bootstrap/css/bootstrap.min.css')}}">
 <!--===============================================================================================-->
@@ -30,6 +28,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/css/util.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('fontend/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css')}}" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{asset('fontend/styles.css')}}">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -81,9 +81,8 @@
 								</li>
 
 								<li>
-									<a href="{{ route('page.categorysell')}}">Sell</a>
+									<a href="{{ route('page.categorysell')}}">sells</a>
 								</li>
-								
 							</ul>
 						</nav>
 					</div>
@@ -122,7 +121,7 @@
 			</li>
 
 			<li class="t-center m-b-13">
-				<a href="sells.html" class="txt19">SELL</a>
+				<a href="sells.html" class="txt19">SellS</a>
 			</li>
 
 			
@@ -141,7 +140,7 @@
 					<img class="im" src="{{asset('fontend/images/esy-054424167.jpg')}}" alt="GALLERY">
 				</a>
 
-				<a class="item-gallery-sidebar wrap-pic-w" href="{{asset('fontend/images/Oil-1.png')}}" data-lightbox="gallery-footer">
+				<a class="item-gallery-sidebar wrap-pic-w" href="{{asset('fontend/')}}images/Oil-1.png" data-lightbox="gallery-footer">
 					<img class="im" src="{{asset('fontend/images/Oil-1.png')}}" alt="GALLERY">
 				</a>
 
@@ -187,175 +186,52 @@
 			</div>
 		</div>
 	</aside>
+	<br><br><br><br><br>
 
+    <div class="container1">
+	<h1>TBOA ADs</h1>
 
-	<!-- Title Page -->
-	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15" >
-		
-		<h2 class="tit6 t-center" style="color: black;">
-			Rent Car AD
-		</h2>
-	</section>
+        <!-- <input type="radio" name="slider" class="d-none" id="s1" checked>
+        <input type="radio" name="slider" class="d-none" id="s2">
+        <input type="radio" name="slider" class="d-none" id="s3">
+        <input type="radio" name="slider" class="d-none" id="s4">
+        <input type="radio" name="slider" class="d-none" id="s5"> -->
+    
+        @php($i=1)
+		@foreach($tboa as $t)
+        <div class="cards">
 
+			
+          <label for="{{'s'.$i}}" id="{{'slide'.$i}}">
+            <div class="card">
+              <div class="image">
+                <img src="{{asset($t->image)}}" width="200px" alt="">
+                <div class="dots">
+                  <div class="dot1"></div>
+                  <div class="dot2"></div>
+                  <div class="dot3"></div>
+                </div>
+              </div>
+              <div class="infos">
+                <span class="name">
+					{{$t->type}}
+					<br>
+					{{$t->brand}}
+					<br>
+				</span>
+                <button onclick="window.location.href='{{ url('/detail ads')}}/<?php echo $t->user_name;?>';" style="background-color: green; width: 50px; border-radius: 50px;" type="submit">View</button>
+                
+              </div>
+              
+              
+            </div>
+          </label>
+    
+        </div>
+		@php($i++)
+		@endforeach
 
-	<div class="categories">
-		<h4 class="txt33 bo5-b p-b-35 p-t-58" style="text-align: center;">
-			Details
-		</h4>
-	<form action="" method="POST" enctype="multipart/form-data">
-		@csrf
-		<ul style="text-align: center;">
-		<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Car Brand:
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							@php($i=1)
-							@foreach($brandnames as $brandname)
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="brand" value="{{$brandname->man_name}}" readonly>
-						@endforeach
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Car Model:
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-							@php($i=1)
-							@foreach($modelNames as $modelName)
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="car_model" value="{{$modelName->model}}" readonly>	
-						@endforeach
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Body Type :
-					</span><p></p>
-					<select name="body_type"> 
-						<option>Type</option>
-						<option>SUV</option>
-						<option>4x4</option>
-						<option>Sedan</option>
-						<option>Cabriolet</option>
-						
-					</select>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Transmission Type :
-					</span><p></p>
-
-					<input type="radio" name="transmission_type" value="automatic"> Automatic &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="transmission_type" value="manual">Manual
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					year
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="year" placeholder="price">
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Engine Capacity :
-					</span><p></p>
-					<select name="engine_capacity"> 
-						<option>0-800</option>
-						<option>1000-1300</option>
-						<option>1400-1500</option>
-						<option>1600</option>
-						<option>1800-2000</option>
-						
-					</select>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Fuel Type :
-					</span><p></p>
-
-					<input type="radio" name="fuel_type" value="benzine"> Benzine&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="diesel">Diesel&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="electric">Electric&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="hybird">Hybrid&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="fuel_type" value="natural gas">Natural Gas
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					 Location
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="location" placeholder="price">
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					color
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="color" placeholder="price">
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Choose Image
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="file" name="image">
-					</div>
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Rental Option :
-					</span><p></p>
-
-					<input type="radio" name="rental_option" value="all"> All&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="rental_option" value="with driver">With Driver&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="rental_option" value="without driver">Without Driver
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					<span class="txt9">
-						Rental Period :
-					</span><p></p>
-
-					<input type="radio" name="rental_period" value="daily"> Daily&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="rental_period" value="monthly">Monthly&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="rental_period" value="yearly">Yearly
-				</label>
-			</li>
-			<li class="bo5-b p-t-8 p-b-8">
-				<label>
-					Price
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="price" placeholder="price">
-					</div>
-				</label>
-				
-			</li>		
-			<li class="bo5-b p-t-8 p-b-8">
-					<div class="wrap-inputemail size12 bo2 bo-rad-10 m-t-3 m-b-23">
-						<input class="bo-rad-10 sizefull txt10 p-l-20" type="submit" name="email" >
-					</div>
-			</li>	
-		</ul>
-</form>
-	</div>
-
-
-
-	
-
-
-	<!-- Back to top -->
-	<div class="btn-back-to-top bg0-hov" id="myBtn">
-		<span class="symbol-btn-back-to-top">
-			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
-		</span>
-	</div>
-
-
+      </div>
 
 <!--===============================================================================================-->
 <script type="text/javascript" src="{{asset('fontend/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
@@ -384,7 +260,6 @@
 	<script type="text/javascript" src="{{asset('fontend/vendor/lightbox2/js/lightbox.min.js')}}"></script>
 <!--===============================================================================================-->
 	<script src="{{asset('fontend/js/main.js')}}"></script>
-
 
 </body>
 </html>

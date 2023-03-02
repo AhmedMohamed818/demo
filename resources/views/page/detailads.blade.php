@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
-!--===============================================================================================-->
+<!--===============================================================================================-->
 <link rel="icon" type="image/png" href="{{asset('fontend/images/icons/favicon.png')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('fontend/vendor/bootstrap/css/bootstrap.min.css')}}">
@@ -42,8 +42,8 @@
 				<div class="wrap_header trans-0-3">
 					<!-- Logo -->
 					<div class="logo">
-						<a href="home1.html">
-							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="images/logo.jpeg">
+						<a href="{{ route('page.home')}}">
+							<img src="{{asset('fontend/images/logo.jpeg')}}" alt="IMG-LOGO" data-logofixed="{{asset('fontend/images/logo.jpeg')}}">
 						</a>
 					</div>
 
@@ -52,21 +52,22 @@
 						<nav class="menu">
 							<ul class="main_menu">
 								<li>
-									<a href="home1.html">Home</a>
+									<a href="{{ route('page.home')}}">Home</a>
 								</li>
 
 								<li>
-									<a href="checkcar.html">check car</a>
+									<a href="{{ route('page.Maintenance')}}">check car</a>
 								</li>
 
 								<li>
 									<li class="nav-item dropdown">
-										<a class="nav-link dropdown-toggle" href="ADS.html" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
+									<a class="nav-link dropdown-toggle" href="{{ route('page.ads')}}" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">View <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-										   <li><a href="brands.html">New cars</a></li>
-										   <li><a href="brands.html"> Used cars</a></li>
-										   
-										  
+										   <li><a href="{{ route('page.newcarads')}}">New cars ads</a></li>
+										   <li><a href="{{ route('page.usedcarads')}}">Used cars ads</a></li>
+										   <li><a href="{{ route('page.rentcarads')}}">Rent ads</a></li>
+										   <li><a href="{{ route('page.tboaads')}}">Tyres, batteries, oils, & accessories ads</a></li>
+										   <li><a href="{{ route('page.sparepartads')}}">Spareparts ads</a></li> 
 										</ul>
 									 </li>
 								</li>
@@ -80,7 +81,7 @@
 								</li>
 
 								<li>
-									<a href="sells.html">Sell</a>
+									<a href="{{ route('page.categorysell')}}">Sell</a>
 								</li>
 								
 							</ul>
@@ -194,50 +195,297 @@
 			Check Car
 		</h2>
 	</section>
-
-
+	@if (count($detailads) === 1 && count($detailads2) === 0 && count($detailads3) === 0 && count($detailads4) === 0)
+	@foreach($detailads as $d)
 	<div class="categories">
+		<img src="{{asset($d->image)}}" width="100%" height="500px" >
 		<h4 class="txt33 bo5-b p-b-35 p-t-58">
 			Details
 		</h4>
-
+		
 		<ul>
+		<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d->user_name}}"> Username
+				</label>
+				
+			</li>
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					<input type="text"> Brand
+					<input type="text" value="{{$d->brand}}"> Brand
 				</label>
 				
 			</li>
 
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					<input type="text"> Model
+					<input type="text" value="{{$d->car_model}}"> Model
 				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d->body_type}}"> Body Type
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d->transmission_type}}"> Transmission type
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d->year}}"> year
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d->engine_capacity}}"> Engine Capacity
+				</label>
+				
 			</li>
 
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					<input type="text"> Ad type
+					<input type="text" value="{{$d->fuel_type}}"> Fuel type
 				</label>
 			</li>
-
+			
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					<input type="text"> Fuel type
+					<input type="text" value="{{$d->location}}"> location
 				</label>
+				
 			</li>
-
 			<li class="bo5-b p-t-8 p-b-8">
 				<label>
-					<input type="text"> Price type
+					<input type="text" value="{{$d->color}}"> color
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d->rental_option}}"> rental option
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d->rental_period}}"> rental period
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d->price}}"> Price 
 				</label>
 			</li>
 
 			
 		</ul>
+		
 	</div>
+	@endforeach
+	@elseif (count($detailads) === 0 && count($detailads2) === 1 && count($detailads3) === 0 && count($detailads4) === 0)
+	@foreach($detailads2 as $d2)
+	<div class="categories">
+		<img src="{{asset($d2->image)}}" width="100%" height="500px" >
+		<h4 class="txt33 bo5-b p-b-35 p-t-58">
+			Details
+		</h4>
+		
+		<ul>
+		<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->user_name}}"> Username
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->ad_type}}"> Ad type
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->brand}}"> Brand
+				</label>
+				
+			</li>
 
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->car_model}}"> Model
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->body_type}}"> Body Type
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->transmission_type}}"> Transmission type
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->year}}"> year
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->engine_capacity}}"> Engine Capacity
+				</label>
+				
+			</li>
 
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->fuel_type}}"> Fuel type
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->condition}}"> Condition
+				</label>
+			</li>
+			
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->location}}"> location
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->color}}"> color
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->price}}"> Price 
+				</label>
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d2->payment_method}}"> Payment method 
+				</label>
+			</li>
+
+			
+		</ul>
+		
+	</div>
+	@endforeach
+	@elseif (count($detailads) === 0 && count($detailads2) === 0 && count($detailads3) === 1 && count($detailads4) === 0)
+	@foreach($detailads3 as $d3)
+	<div class="categories">
+		<img src="{{asset($d3->image)}}" width="100%" height="500px" >
+		<h4 class="txt33 bo5-b p-b-35 p-t-58">
+			Details
+		</h4>
+		
+		<ul>
+		<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d3->user_name}}"> Username
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d3->type}}"> type
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d3->brand}}"> Brand
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d3->condition}}"> Condition
+				</label>
+			</li>
+			
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d3->location}}"> location
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d3->price}}"> Price 
+				</label>
+			</li>
+
+			
+		</ul>
+		
+	</div>
+	@endforeach
+	@elseif (count($detailads) === 0 && count($detailads2) === 0 && count($detailads3) === 0 && count($detailads4) === 1)
+	@foreach($detailads4 as $d4)
+	<div class="categories">
+		<img src="{{asset($d4->image)}}" width="100%" height="500px" >
+		<h4 class="txt33 bo5-b p-b-35 p-t-58">
+			Details
+		</h4>
+		
+		<ul>
+		<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d4->user_name}}"> Username
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d4->type}}"> type
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d4->brand}}"> Brand
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d4->condition}}"> Condition
+				</label>
+			</li>
+			
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d4->location}}"> location
+				</label>
+				
+			</li>
+			<li class="bo5-b p-t-8 p-b-8">
+				<label>
+					<input type="text" value="{{$d4->price}}"> Price 
+				</label>
+			</li>
+
+			
+		</ul>
+		
+	</div>
+	@endforeach
+	@endif
 
 	
 

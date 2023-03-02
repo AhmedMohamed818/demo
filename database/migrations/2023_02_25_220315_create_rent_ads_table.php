@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('fuel_type');
             $table->string('location');
             $table->string('color');
+            $table->string('image');
             $table->string('rental_option');
             $table->string('rental_period');
             $table->integer('price');
